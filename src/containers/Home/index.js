@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
@@ -45,22 +44,19 @@ const Heading = styled.h1`
   })};
 `;
 
-export class Home extends React.Component {
-  render() {
-    return (
-      <HomeContainer verticalPadding>
-        <Header>
-          <Logo type="logo" />
-        </Header>
-        <Heading>Heading</Heading>
-        <h1>test</h1>
-      </HomeContainer>
-    );
-  }
-}
+const Home = () => {
+  return (
+    <HomeContainer verticalPadding>
+      <Header>
+        <Logo type="logo" />
+      </Header>
+      <Heading>Heading</Heading>
+      <h1>test</h1>
+    </HomeContainer>
+  );
+};
 
-/* istanbul ignore next */
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {};
 }
 

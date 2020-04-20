@@ -8,13 +8,14 @@
  */
 
 import produce from 'immer';
-import constants from './constants';
+
+// import constants from './constants';
 
 // The initial state of the App
 export const initialState = {
   container: 'Home',
 };
 
-const homeReducer = (state = initialState, action) => produce(state, draft => {});
+const homeReducer = (state = initialState /* action */) => produce(state, (/* draft */) => {});
 
 export default homeReducer;

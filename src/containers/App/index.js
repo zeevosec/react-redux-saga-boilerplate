@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Router, Switch, Route } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import styled, { ThemeProvider } from 'styled-components';
 
-import history from 'modules/history';
+import history from '../../modules/history';
 import theme from '../../modules/theme';
 
 import Home from '../Home';

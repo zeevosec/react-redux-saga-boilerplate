@@ -4,7 +4,6 @@ export const sagaMiddleware = createSagaMiddleware();
 
 const middleware = [sagaMiddleware];
 
-/* istanbul ignore next */
 if (process.env.NODE_ENV === 'development') {
   const { createLogger } = require('redux-logger');
   const invariant = require('redux-immutable-state-invariant').default;

@@ -1,4 +1,4 @@
-/* eslint-disable no-use-before-define,no-console */
+/* eslint-disable */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 

@@ -1,14 +1,7 @@
 {
   "name": "react-redux-saga-starter",
-  "description": "Starter project with React and Redux with Redux Saga",
   "version": "2020.10.0",
-  "author": "Shane O'Neill <oneill.shane.h@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/zeevosec/react-redux-saga-starter"
-  },
-  "bugs": "https://github.com/zeevosec/react-redux-saga-starter/issues",
-  "license": "MIT",
+  "description": "Starter project with React and Redux with Redux Saga",
   "keywords": [
     "React",
     "Redux",
@@ -16,12 +9,58 @@
     "Webpack",
     "ES6"
   ],
+  "bugs": "https://github.com/zeevosec/react-redux-saga-starter/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeevosec/react-redux-saga-starter"
+  },
+  "license": "MIT",
+  "author": "Shane O'Neill <oneill.shane.h@gmail.com>",
+  "scripts": {
+    "analyze": "NODE_ENV=production webpack --config config/webpack.config.js --profile --json > webpack.stats.json",
+    "build": "node tools/build",
+    "build:serve": "npm run build && npm run serve",
+    "deploy": "node tools/deploy",
+    "format": "prettier \"**/*.{js,jsx}\" --write",
+    "lint": "eslint  --ext .js --ext .jsx src",
+    "lint:styles": "stylelint 'src/**/*.{js,jsx}'",
+    "publish": "node tools/publish",
+    "serve": "serve --listen 3000 build",
+    "size": "npm run build && size-limit",
+    "start": "node tools/start",
+    "test": "is-ci \"test:coverage\" \"test:watch\"",
+    "test:coverage": "jest --bail --coverage",
+    "test:watch": "jest --watch --verbose",
+    "validate": "npm run lint && npm run lint:styles && npm run test:coverage && flow && npm run build && npm run test:e2e && size-limit"
+  },
+  "lint-staged": {
+    "*.(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js?(x)": [
+      "eslint --fix",
+      "git add",
+      "jest --findRelatedTests"
+    ]
+  },
+  "browserslist": [
+    "> 0.2%",
+    "not dead"
+  ],
+  "prettier": {
+    "jsxBracketSameLine": false,
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "classlist-polyfill": "^1.2.0",
     "connected-react-router": "^6.8.0",
+    "core-js": "^3.2.1",
     "events-polyfill": "^2.1.2",
     "history": "^4.10.1",
     "immer": "^4.0.1",
@@ -41,8 +80,11 @@
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
     "redux-actions": "^2.6.5",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-saga": "^1.1.1",
+    "regenerator-runtime": "^0.13.3",
     "styled-components": "^4.4.0",
     "styled-minimal": "^0.9.0",
     "tree-changes": "^0.5.1"
@@ -63,7 +105,6 @@
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
     "chalk": "^2.4.2",
     "circular-dependency-plugin": "^5.2.0",
-    "core-js": "^3.2.1",
     "css-loader": "^3.2.0",
     "date-fns": "^2.4.1",
     "dotenv": "^8.1.0",
@@ -75,11 +116,11 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-react": "^7.16.0",
-    "eslint-plugin-redux-saga": "^1.1.1",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-redux-saga": "^1.1.1",
     "expose-loader": "^0.7.5",
     "file-loader": "^4.2.0",
     "flow-bin": "^0.109.0",
@@ -117,11 +158,8 @@
     "react-dev-utils": "^9.1.0",
     "react-error-overlay": "^6.0.3",
     "react-hot-loader": "^4.12.14",
-    "redux-immutable-state-invariant": "^2.1.0",
-    "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.3",
     "redux-saga-test-plan": "^4.0.0-beta.3",
-    "regenerator-runtime": "^0.13.3",
     "repo-tools": "^0.2.0",
     "rsync": "^0.6.1",
     "sass-loader": "^8.0.0",
@@ -141,44 +179,6 @@
     "webpack-dev-server": "^3.8.2",
     "workbox-webpack-plugin": "^4.3.1"
   },
-  "scripts": {
-    "start": "node tools/start",
-    "build": "node tools/build",
-    "build:serve": "npm run build && npm run serve",
-    "analyze": "NODE_ENV=production webpack --config config/webpack.config.js --profile --json > webpack.stats.json",
-    "lint": "eslint  --ext .js --ext .jsx src config test tools",
-    "lint:styles": "stylelint 'src/**/*.{js,jsx}'",
-    "test": "is-ci \"test:coverage\" \"test:watch\"",
-    "test:coverage": "jest --bail --coverage",
-    "test:watch": "jest --watch --verbose",
-    "format": "prettier \"**/*.{js,jsx}\" --write",
-    "validate": "npm run lint && npm run lint:styles && npm run test:coverage && flow && npm run build && npm run test:e2e && size-limit",
-    "serve": "serve --listen 3000 build",
-    "deploy": "node tools/deploy",
-    "publish": "node tools/publish",
-    "size": "npm run build && size-limit"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "jsxBracketSameLine": false
-  },
-  "lint-staged": {
-    "*.js?(x)": [
-      "eslint --fix",
-      "git add",
-      "jest --findRelatedTests"
-    ],
-    "*.(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "browserslist": [
-    "> 0.2%",
-    "not dead"
-  ],
   "size-limit": [
     {
       "path": "./build/scripts/*.js",

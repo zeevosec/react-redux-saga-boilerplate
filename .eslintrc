@@ -33,6 +33,7 @@
     "react/no-did-update-set-state": "off",
     "react/jsx-props-no-spreading": "off",
     "import/no-dynamic-require": "off",
-    "no-restricted-globals": "off" // For isNan
+    "no-restricted-globals": "off", // For isNan
+    "import/no-named-as-default": 0
   }
 }

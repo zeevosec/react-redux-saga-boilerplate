@@ -1,6 +1,6 @@
 /**
- * The global state selectors
+ * The App state selectors
  */
 
-import { createSelector } from 'reselect';
-import { initialState } from './reducers';
+// import { createSelector } from 'reselect';
+// import { initialState } from './reducers';
