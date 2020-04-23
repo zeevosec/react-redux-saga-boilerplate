@@ -9,6 +9,8 @@ import history from './modules/history';
 
 import App from './containers/App';
 
+import './icons';
+
 const store = configureStore({}, history);
 
 ReactDOM.render(

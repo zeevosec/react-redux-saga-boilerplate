@@ -43,7 +43,7 @@ export default class Header extends React.PureComponent {
     return (
       <HeaderWrapper>
         <HeaderContainer>
-          <Logo type="logo" />
+          <Logo />
         </HeaderContainer>
       </HeaderWrapper>
     );

@@ -5,18 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const Wrapper = styled.div`
   align-items: flex-start;
   display: inline-flex;
-  font-size: 0;
 
   svg {
     height: 4.2rem;
     max-height: 100%;
-    width: auto;
+    width: 8.2rem !important;
   }
 `;
 
 const Logo = () => (
   <Wrapper>
-    <FontAwesomeIcon icon="react" />
+    <FontAwesomeIcon icon={['fab', 'react']} />
   </Wrapper>
 );
 

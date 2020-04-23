@@ -11,7 +11,6 @@ const HomeContainer = styled(Container)`
   align-items: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 `;
 
 const Header = styled.div`
@@ -44,6 +43,10 @@ const Heading = styled.h1`
   })};
 `;
 
+const Red = styled.span`
+  color: #e25555;
+`;
+
 const Home = () => {
   return (
     <HomeContainer verticalPadding>
@@ -51,7 +54,10 @@ const Home = () => {
         <Logo type="logo" />
       </Header>
       <Heading>Heading</Heading>
-      <h1>test</h1>
+      <h2>Your App here!</h2>
+      <p>
+        Made with <Red>&hearts;</Red> by <a href="https://twitter.com/zeevosec">Shane O'Neill</a>
+      </p>
     </HomeContainer>
   );
 };
