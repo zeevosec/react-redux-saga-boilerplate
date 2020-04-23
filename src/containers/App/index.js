@@ -25,28 +25,26 @@ const Main = styled.main`
   min-height: 100vh;
 `;
 
-export class App extends React.Component {
-  render() {
-    return (
-      <Router history={history}>
-        <ThemeProvider theme={theme}>
-          <AppWrapper>
-            <Helmet />
-            <Main>
-              <Switch>
-                <Route path="/" exact component={Home} />
-              </Switch>
-            </Main>
-            <Footer />
-            <GlobalStyles />
-          </AppWrapper>
-        </ThemeProvider>
-      </Router>
-    );
-  }
-}
+const App = () => {
+  return (
+    <Router history={history}>
+      <ThemeProvider theme={theme}>
+        <AppWrapper>
+          <Helmet />
+          <Main>
+            <Switch>
+              <Route path="/" exact component={Home} />
+            </Switch>
+          </Main>
+          <Footer />
+          <GlobalStyles />
+        </AppWrapper>
+      </ThemeProvider>
+    </Router>
+  );
+};
 
-function mapStateToProps(state) {
+function mapStateToProps() {
   return {};
 }
 
