@@ -17,22 +17,15 @@
   "license": "MIT",
   "author": "Shane O'Neill <oneill.shane.h@gmail.com>",
   "scripts": {
-    "analyze": "NODE_ENV=production webpack --config config/webpack.config.js --profile --json > webpack.stats.json",
+    "start": "node tools/start",
     "build": "node tools/build",
     "build:serve": "npm run build && npm run serve",
-    "deploy": "node tools/deploy",
     "format": "prettier \"**/*.{js,jsx}\" --write",
     "lint": "npm run lint:js && npm run lint:styles",
     "lint:js": "eslint  --ext .js --ext .jsx src",
     "lint:styles": "stylelint 'src/**/*.{js,jsx}'",
-    "publish": "node tools/publish",
     "serve": "serve --listen 3000 build",
-    "size": "npm run build && size-limit",
-    "start": "node tools/start",
-    "test": "is-ci \"test:coverage\" \"test:watch\"",
-    "test:coverage": "jest --bail --coverage",
-    "test:watch": "jest --watch --verbose",
-    "validate": "npm run lint && npm run lint:styles && npm run test:coverage && flow && npm run build && npm run test:e2e && size-limit"
+    "test": "jest --watch --verbose"
   },
   "lint-staged": {
     "*.(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
